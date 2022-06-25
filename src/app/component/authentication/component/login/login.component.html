@@ -1,1 +1,63 @@
-<p>login works!</p>
+<body xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<section class="login-section">
+  <div class="epic-logo">
+    <img src="https://i.ibb.co/vBtrVvV/logo.png" alt="logo" border="0">
+  </div>
+
+  <div class="login-welcome-note">
+    <h3>
+      Welcome to <br>Card Management System <span>(CMS)</span>
+    </h3>
+
+    <p>
+      CMS comprehensive payment solution come up with card issuing,<br>
+      customer services, monitoring &amp; reporting,EOD process and merchant<br>
+      acquiring capabilities to manage your card products and services in an<br>
+      effective way.
+    </p>
+  </div>
+
+  <div class="login-form">
+    <form class="form-content-of-login-form">
+      <mat-form-field class="form-filed" id="username-field">
+        <mat-label id="username-label">Username</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+        <!--      <mat-hint>Errors appear instantly!</mat-hint>-->
+        <mat-error id="matt-error" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid Username
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-filed" id="password-field">
+        <mat-label id="password-label">Password</mat-label>
+        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+        >
+        <!--      <mat-hint>Errors appear instantly!</mat-hint>-->
+        <mat-error id="matt-error" *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+          Please enter a valid Password
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+
+    <div class="login-button" id="login-button">
+      <button id="press-btn-login" mat-raised-button color="warn">Login</button>
+    </div>
+
+
+  </div>
+</section>
+<!--<div class="login-image">-->
+<!--  <img src="https://i.ibb.co/MpBV4SH/login-image-issuing.png" alt="login-image-issuing" border="0" id="login-image">-->
+<!--</div>-->
+<section class="footer-section">
+<div class="login-footer">© Epic Technology Group {{currentYear}}.</div>
+</section>
+
+</body>
