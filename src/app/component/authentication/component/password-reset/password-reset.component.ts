@@ -17,16 +17,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class PasswordResetComponent implements OnInit {
 
-  passwordFormControl = new FormControl('',[Validators.required]);
+  CurrentPasswordFormControl= new FormControl('',[Validators.required]);
+  NewPasswordFormControl = new FormControl('',[Validators.required]);
+  ConfirmNewPasswordFormControl = new FormControl('',[Validators.required]);
+
   matcher = new MyErrorStateMatcher();
 
-  getErrorMessage() {
-    if (this.passwordFormControl.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.passwordFormControl.hasError('email') ? 'Not a valid email' : '';
-  }
 
   constructor() { }
 

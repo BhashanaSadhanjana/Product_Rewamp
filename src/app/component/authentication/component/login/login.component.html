@@ -18,10 +18,11 @@
   </div>
 
   <div class="login-form">
-    <form class="form-content-of-login-form">
+    <form class="form-content-of-login-form" [formGroup]="loginForm">
       <mat-form-field class="form-filed" id="username-field">
         <mat-label id="username-label">Username</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+<!--        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">-->
+        <input name="username" matInput formControlName="username" [errorStateMatcher]="matcher" id="txt_username" type="text" class="form-login watermark" value size="30" maxlength="100" placeholder="Username" data-placeholdercss="watermarkInput">
         <!--      <mat-hint>Errors appear instantly!</mat-hint>-->
         <mat-error id="matt-error" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please enter a valid Username
@@ -33,8 +34,8 @@
 
       <mat-form-field class="form-filed" id="password-field">
         <mat-label id="password-label">Password</mat-label>
-        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
-        >
+<!--        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">-->
+        <input name="password" matInput id="txt_password" formControlName="password" [errorStateMatcher]="matcher" type="password" class="form-login watermark" value size="30" maxlength="100" placeholder="Password" data-placeholdercss="watermarkInput" autocomplete="off">
         <!--      <mat-hint>Errors appear instantly!</mat-hint>-->
         <mat-error id="matt-error" *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
           Please enter a valid Password
@@ -47,7 +48,7 @@
 
 
     <div class="login-button" id="login-button">
-      <button id="press-btn-login" mat-raised-button color="warn">Login</button>
+      <button id="press-btn-login" (click)="LoginUser()" mat-raised-button color="warn">Login</button>
     </div>
 
 
